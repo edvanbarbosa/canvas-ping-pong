@@ -9,29 +9,62 @@
     <title>Ping Pong</title>
 </head>
 <body>
-    <section class="game">
-        <canvas width="800" height="500">
-            Seu navegador não suporta o elemento canvas
-        </canvas>
-        <div class="btn-container"><button onclick="bola.iniciar()">Iniciar</button></div>
-    </section>
-    <section class="pontuacao">
-        <div class="pontuacao-container">
-            <div class="placar-pj1">
-                <div class="name">
-                    <p class="name-pj1">Player 01</p>
+    <div class="jogo">
+        <section class="game">
+            <canvas width="800" height="500">
+                Seu navegador não suporta o elemento canvas
+            </canvas>
+            <div class="btn-container"><button onclick="bola.iniciar()">Iniciar</button></div>
+        </section>
+        <section class="pontuacao">
+            <div class="pontuacao-container">
+                <div class="placar-pj1">
+                    <div class="name">
+                        <p class="name-pj1">Player 01</p>
+                    </div>
+                    <p class="pontuacaop pj1">0</p>
                 </div>
-                <p class="pontuacaop pj1">0</p>
+                <div class="mode"><p>...</p></div>
+                <div class="placar-pj2">
+                    <div class="name">
+                        <p class="name-pj2">Player 02</p>
+                    </div>
+                    <p class="pontuacaop pj2">0</p>
+                </div>
             </div>
-            <div class="mode"><p>...</p></div>
-            <div class="placar-pj2">
-                <div class="name">
-                    <p class="name-pj2">Player 02</p>
+        </section>
+    </div>
+    <div class="lobby">
+        <div class="title">
+            <h1>Pingue & Pongue</h1>
+        </div>
+        <div class="simulacao-game">
+            <div class="container-simulador">
+                <div class="ladop1">
+                    <div class="player1"></div>
                 </div>
-                <p class="pontuacaop pj2">0</p>
+                <div class="bola">
+                    <div class="bola-simulador"></div>
+                </div>
+                <div class="lado-2">
+                    <div class="player2"></div>
+                </div>
             </div>
         </div>
-    </section>
+        <div class="options">
+            <div class="personalize personalize1">
+                <input type="text" name="name1" id="name1" class="ipn1" placeholder="Jogador 01">
+
+            </div>
+            <div class="mode/continue">
+
+            </div>
+            <div class="personalize personalize2">
+                <input type="text" name="name2" id="name2" class="ipn2" placeholder="Jogador 02">
+            </div>
+        </div>
+    </div>
+
     <script src="Pad2.js"></script>
     <script src="Pad.js"></script>
     <script src="Bola.js"></script>
