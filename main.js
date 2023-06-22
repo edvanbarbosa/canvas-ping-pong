@@ -4,7 +4,7 @@ const ctx = canvas.getContext("2d")
 const H_canvas = canvas.height
 const W_canvas = canvas.width
 
-let pj1= pj2 = 0
+let pj1 = pj2 = 0
 
 const teclado  = {
     cima: false,
@@ -17,7 +17,6 @@ const teclado  = {
 const jogador = new Pad(ctx,teclado)
 const bola = new Bola(ctx,jogador)
 const cpu = new Cpu(ctx,bola)
-const placar = new Placar(ctx)
 
 
 
@@ -58,14 +57,19 @@ window.addEventListener("keyup",(event)=>{
     }
 })
 
+
+const placar = () =>{
+    document.querySelector('.pj1').innerHTML = pj1
+    document.querySelector('.pj2').innerHTML = pj2
+}
+
 const game=()=>{
 
     ctx.clearRect(0,0,W_canvas,H_canvas)
     jogador.desenhar()
     bola.desenhar()
     cpu.desenhar()
-    placar.desenhar()
-    
+    placar()
     requestAnimationFrame(game)
 
 }

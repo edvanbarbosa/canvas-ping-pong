@@ -52,7 +52,11 @@ class Cpu {
             
         } 
     }
+    nomear(){
+        document.querySelector('.name-pj2').innerHTML = "Cpu"
+    }
     desenhar(){
+        this.nomear()
         this.gerenciar()
         this.ctx.fillRect(this.x,this.y,this.largura,this.altura)
 

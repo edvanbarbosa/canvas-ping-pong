@@ -9,10 +9,30 @@
     <title>Ping Pong</title>
 </head>
 <body>
-    <canvas width="600" height="500">
-
-    </canvas>
-    <button onclick="bola.iniciar()">Iniciar</button>
+    <section class="game">
+        <canvas width="800" height="500">
+            Seu navegador não suporta o elemento canvas
+        </canvas>
+        <div class="btn-container"><button onclick="bola.iniciar()">Iniciar</button></div>
+    </section>
+    <section class="pontuacao">
+        <div class="pontuacao-container">
+            <div class="placar-pj1">
+                <div class="name">
+                    <p class="name-pj1">Player 01</p>
+                </div>
+                <p class="pontuacaop pj1">0</p>
+            </div>
+            <div class="mode"><p>...</p></div>
+            <div class="placar-pj2">
+                <div class="name">
+                    <p class="name-pj2">Player 02</p>
+                </div>
+                <p class="pontuacaop pj2">0</p>
+            </div>
+        </div>
+    </section>
+    
     <script src="Pad.js"></script>
     <script src="Bola.js"></script>
     <script src="Cpu.js"></script>
