@@ -1,5 +1,7 @@
 class Cpu {
-    constructor(ctx,bola){
+    constructor(ctx,bola,element,name){
+        this.name = name
+        this.elementName = element
         this.ctx = ctx
         this.bola = bola
         this.vel = 5
@@ -52,11 +54,11 @@ class Cpu {
             
         } 
     }
-    nomear(){
-        document.querySelector('.name-pj2').innerHTML = "Cpu"
+    nomear(name,element){
+        element.innerHTML = name
     }
     desenhar(){
-        this.nomear()
+        this.nomear(this.name,this.elementName)
         this.gerenciar()
         this.ctx.fillRect(this.x,this.y,this.largura,this.altura)
 

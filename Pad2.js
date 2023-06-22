@@ -1,14 +1,14 @@
 
-class Pad {
+class Pad2 {
     constructor(ctx,teclado,element,name){
         this.name = name
         this.elementName = element
         this.ctx = ctx
         this.teclado = teclado 
-        this.x = 0
         this.vel = 5
         this.largura = 20
         this.altura = 100
+        this.x = W_canvas- this.largura
         this.y = (H_canvas - this.altura)/2
         
         

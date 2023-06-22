@@ -76,6 +76,7 @@ canvas{
     border-bottom: 2px solid rgb(0, 0, 0);
 }
 .placar-pj2{
+    flex-direction: column-reverse;
     border-top: 2px solid rgb(0, 0, 0);
 }
 .name{
