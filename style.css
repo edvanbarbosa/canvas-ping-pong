@@ -95,6 +95,8 @@ canvas{
     align-items: flex-end;
     flex-direction: column;
     gap: 20px;
+    z-index: -1;
+    
 
 }
 .btn-container{
@@ -152,6 +154,12 @@ canvas{
     justify-content: center;
     align-items: center;
     height: 10%;
+    width: 100%;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: 600;
+    background-color: #000;
+    font-family: monospace;
 }
 .pontuacaop{
     font-size: 3em;
@@ -159,4 +167,42 @@ canvas{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.winner{
+    height: 100vh;
+    width: 100vw;
+    margin-left: -70%;
+    position: fixed;
+    background-color: #00000075;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.winner-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    font-family: monospace;
+    font-size: 1.5em;
+    color: #ffffff;
+    background-color: #121212;
+    height: 50%;
+    width: 40%;
+}
+.winner-container button{
+    border: 3px solid black;
+    color: black;
+    background-color: #fff;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    font-family: monospace;
+    font-weight: 600;
+    transition: .2s ease-in-out;
+    cursor: pointer;
+}
+.winner-container button:hover{
+    background-color: #000;
+    color: #fff;
 }

@@ -5,6 +5,9 @@ const W_canvas = canvas.width
 const namepj1 = document.querySelector('.name-pj1')
 const namepj2 = document.querySelector('.name-pj2')
 const btn = document.querySelector('.btn-container button')
+const min = document.querySelector('.min')
+const seg = document.querySelector('.seg')
+let statusCronos = false
 let pj1 = pj2 = 0
 
 const audioTheme = new Audio('./songs/musicTheme.mp3')
@@ -53,6 +56,8 @@ window.addEventListener('keydown',(event)=>{
         bola.iniciar()
         btn.style.backgroundColor = '#000'
         btn.style.color = "#fff"
+        statusCronos = true
+       
 
         window.addEventListener('keyup',(e)=>{
             if(event.keyCode == 32 ){
@@ -62,6 +67,8 @@ window.addEventListener('keydown',(event)=>{
         })
     }
 })
+
+
 
 
 window.addEventListener("keyup",(event)=>{
@@ -80,15 +87,62 @@ window.addEventListener("keyup",(event)=>{
         teclado.direita= false
     }
 })
+let segundos = 0
+let minutos = 3
+const cronometro = () =>{
+    
+    setInterval(()=>{
+        if(statusCronos == true){
+            if (minutos >=0){
+                if (segundos == 0){
+                    segundos = 60
+                    minutos --
+                }
+                segundos --
+                if (segundos < 10){
+                    seg.innerHTML = `0${segundos}`
+                }else{
+                    seg.innerHTML = segundos
+                }
+                if (minutos < 10){
+                    min.innerHTML = `0${minutos}`
+                }else{
+                    min.innerHTML = minutos
+                }
+            }
+        }else{
+            segundos = segundos
+            minutos = minutos
+            
+        }
+        
+    },1000)
+}
 
+const winner = ()=>{
+    let winner;
+    if(pj1 > pj2){
+        winner = 'Jogador 01'
+    }
+    else if(pj2 > pj1){
+        winner = 'Cpu'
+    }
+    else{
+        winner = 'Empate'
+    }
+    document.querySelector('.winner-container h1').innerHTML = winner
+    document.querySelector('.winner').style.display = 'flex'
+}
 
+const winnerOcult = ()=>{
+    document.querySelector('.winner').style.display = 'none'
+}
 const placar = () =>{
     document.querySelector('.pj1').innerHTML = pj1
     document.querySelector('.pj2').innerHTML = pj2
 }
 
 const game=()=>{
-
     ctx.clearRect(0,0,W_canvas,H_canvas)
     jogador.desenhar()
     // jogador2.desenhar()
@@ -97,5 +151,21 @@ const game=()=>{
     placar()
     requestAnimationFrame(game)
 
+    if(minutos == 0 && segundos == 0){
+        statusCronos = false
+        verificInit = false
+        winner()
+        minutos = 3
+        segundos = 0
+        min.innerHTML = '03'
+        seg.innerHTML = '00'
+        pj1 = pj2 = 0
+        bola.movendo = false
+
+        bola.y = (H_canvas - bola.altura)/2
+        bola.x = (W_canvas - bola.largura)/2
+    }
+
 }
+cronometro()
 requestAnimationFrame(game)

@@ -41,6 +41,7 @@ class Bola{
                 this.dirx = -1
                 this.songP.play()
                 verificInit = false
+                statusCronos = false
             }
             if(this.x <= 0){
                 this.dirx = 1
@@ -49,6 +50,7 @@ class Bola{
                 this.dirx = 1
                 this.songJ.play()
                 verificInit = false
+                statusCronos = false
             
             }
             if(this.y >= H_canvas-this.altura){
