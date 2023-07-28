@@ -29,9 +29,7 @@ body, .jogo,.lobby{
     flex-direction: column;
     gap: 20px;
 }
-.jogo{
-    display: none;
-}
+
 .simulacao-game{
     display: flex;
     justify-content: center;
@@ -75,10 +73,10 @@ body, .jogo,.lobby{
     background-color: #fff;
     border: 2px solid black;
 }
-button{
-    background-color: black;
-    color: white;
-    border: none;
+.btn-container button{
+    border: 3px solid black;
+    color: black;
+    background-color: #fff;
     padding: 10px 20px;
     font-size: 1.1em;
     font-family: monospace;

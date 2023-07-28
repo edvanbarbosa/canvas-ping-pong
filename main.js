@@ -4,7 +4,17 @@ const H_canvas = canvas.height
 const W_canvas = canvas.width
 const namepj1 = document.querySelector('.name-pj1')
 const namepj2 = document.querySelector('.name-pj2')
+const btn = document.querySelector('.btn-container button')
 let pj1 = pj2 = 0
+
+const audioTheme = new Audio('./songs/musicTheme.mp3')
+
+const playAudio = ()=>{
+    audioTheme.play()
+    audioTheme.loop
+}
+
+
 
 const teclado  = {
     cima: false,
@@ -14,14 +24,10 @@ const teclado  = {
 
 }
 
-const jogador = new Pad(ctx,teclado,namepj1,"Edvan")
-const jogador2 = new Pad2(ctx,teclado,namepj1,"Edvan")
+const jogador = new Pad(ctx,teclado)
+const jogador2 = new Pad2(ctx,teclado)
 const bola = new Bola(ctx,jogador)
-const cpu = new Cpu(ctx,bola,namepj2,"Cpu")
-
-
-
-
+const cpu = new Cpu(ctx,bola)
 
 
 window.addEventListener("keydown",(event)=>{
@@ -38,6 +44,22 @@ window.addEventListener("keydown",(event)=>{
     }
     if (tecla == "ArrowRight"){
         teclado.direita= true
+    }
+
+})
+let verificInit = false
+window.addEventListener('keydown',(event)=>{
+    if(event.keyCode == 32 && verificInit == false){
+        bola.iniciar()
+        btn.style.backgroundColor = '#000'
+        btn.style.color = "#fff"
+
+        window.addEventListener('keyup',(e)=>{
+            if(event.keyCode == 32 ){
+                btn.style.backgroundColor = '#fff'
+                btn.style.color = "#000"
+            }
+        })
     }
 })
 

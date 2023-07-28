@@ -11,6 +11,7 @@ class Cpu {
         this.x = W_canvas- this.largura
         this.inicioX = this.x
         this.inicioY = this.y
+        this.songC = new Audio('./songs/toque.mp3')
         this.meioY = Math.random()*this.altura
         
     }
@@ -50,15 +51,13 @@ class Cpu {
             this.bola.dirx =- 1
             this.bola.diry = ((this.bola.y+(this.bola.altura)/2) -(this.y+(this.altura)/2))/20
             this.meioY = Math.random()*this.altura
+            this.songC.play()
 
             
         } 
     }
-    nomear(name,element){
-        element.innerHTML = name
-    }
+   
     desenhar(){
-        this.nomear(this.name,this.elementName)
         this.gerenciar()
         this.ctx.fillRect(this.x,this.y,this.largura,this.altura)
 

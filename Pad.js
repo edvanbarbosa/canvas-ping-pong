@@ -1,8 +1,6 @@
 
 class Pad {
-    constructor(ctx,teclado,element,name){
-        this.name = name
-        this.elementName = element
+    constructor(ctx,teclado,element){
         this.ctx = ctx
         this.teclado = teclado 
         this.x = 0
@@ -33,11 +31,9 @@ class Pad {
 
 
     }
-    nomear(name,element){
-        element.innerHTML = name
-    }
+   
     desenhar(){
-        this.nomear(this.name,this.elementName)
+
         this.gerenciar()
         this.ctx.fillRect(this.x,this.y,this.largura,this.altura)
         
